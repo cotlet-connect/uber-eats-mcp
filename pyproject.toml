@@ -1,0 +1,29 @@
+[project]
+name = "uber-eats-mcp"
+version = "1.1.0"
+description = "Connect Uber Eats to ChatGPT, Claude and other AI agents through Cotlet.dev, a hosted MCP server. No Uber Eats API key needed."
+readme = "README.md"
+license = "Elastic-2.0"
+license-files = ["LICENSE"]
+requires-python = ">=3.10"
+authors = [{ name = "Cotlet.dev", email = "contact@cotlet.dev" }]
+keywords = ["uber eats", "uber eats api", "uber eats mcp", "mcp server", "claude", "chatgpt", "ai agent", "cotlet"]
+classifiers = ["Programming Language :: Python :: 3", "Topic :: Office/Business"]
+dependencies = []
+
+[project.urls]
+Homepage = "https://cotlet.dev/integrations/uber-eats-api-mcp-server?utm_source=pypi&utm_medium=package&utm_campaign=uber-eats"
+Source = "https://github.com/cotlet-connect/uber-eats-mcp"
+
+[project.scripts]
+uber-eats-mcp = "uber_eats_agent:main"
+
+[build-system]
+requires = ["hatchling>=1.27"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel.force-include]
+"uber_eats_agent.py" = "uber_eats_agent.py"
+
+[tool.hatch.build.targets.sdist]
+include = ["uber_eats_agent.py", "README.md", "LICENSE", "mcp.json", "Dockerfile", "glama.json", "skills", "examples", ".cursor"]
